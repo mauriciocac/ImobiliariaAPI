@@ -1,13 +1,17 @@
 package br.com.imobiliariaapi.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	private String _id;
+	private String budget;
+	private Integer age;
+	private Nome name;
 	private String company;
 	private String email;
 	private String phone;
@@ -17,6 +21,8 @@ public class Customer implements Serializable {
 	private String latitude;
 	private String longitude;
 	private String channel;
+	private List<Pictures> pictures;
+	private List<ContactTimeline> contactTimeline;
 
 	public String getEmail() {
 		return email;
@@ -24,11 +30,6 @@ public class Customer implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return company + " : " + email + " : " + channel;
 	}
 
 	public String getPhone() {
@@ -95,4 +96,57 @@ public class Customer implements Serializable {
 		this.company = company;
 	}
 
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public Nome getName() {
+		return name;
+	}
+
+	public void setName(Nome name) {
+		this.name = name;
+	}
+
+	public String getBudget() {
+		return budget;
+	}
+
+	public void setBudget(String budget) {
+		this.budget = budget;
+	}
+
+
+	public List<Pictures> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<Pictures> pictures) {
+		this.pictures = pictures;
+	}
+
+	public List<ContactTimeline> getContactTimeline() {
+		return contactTimeline;
+	}
+
+	public void setContactTimeline(List<ContactTimeline> contactTimeline) {
+		this.contactTimeline = contactTimeline;
+	}
+
+	@Override
+	public String toString() {
+		return name.toString() + ": " + company + " : " + email + " : " + channel +" : " +contactTimeline.toString();
+	}
 }

@@ -25,7 +25,7 @@ public class ClienteResource {
 
 		ResponseEntity<List<Customer>> customers = template.exchange(api, HttpMethod.GET, null, new ParameterizedTypeReference<List<Customer>>() {
 		 
-		});
+		}); 
 		 
 		return customers;
 	}
